@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>View Messages</title>
   <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
     table {
       border-collapse: collapse;
       width: 80%;
@@ -17,10 +21,25 @@
     th {
       background-color: #f0f0f0;
     }
+    #clear-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    #clear-btn:hover {
+      background-color: #c82333;
+    }
   </style>
 </head>
 <body>
-  <h2 style="text-align:center;">Submitted Contact Messages</h2>
+
+  <h2>Submitted Contact Messages</h2>
+  <button id="clear-btn">Clear All Messages</button>
+
   <table id="messages-table">
     <thead>
       <tr>
@@ -53,7 +72,22 @@
       });
     }
 
+    async function clearMessages() {
+      const confirmed = confirm("Are you sure you want to clear all messages?");
+      if (!confirmed) return;
+
+      const res = await fetch("http://localhost:5000/messages", {
+        method: "DELETE"
+      });
+      const result = await res.json();
+      alert(result.message);
+      loadMessages(); // Reload table
+    }
+
+    document.getElementById("clear-btn").addEventListener("click", clearMessages);
+
     loadMessages();
   </script>
+
 </body>
 </html>
