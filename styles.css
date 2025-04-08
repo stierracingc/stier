@@ -1,0 +1,1029 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: #000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.2);
+}
+
+.logo img {
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1.5rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff0000;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 5px;
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000; /* Solid black background */
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+/* Side Vectors */
+.vector-strip {
+    position: absolute;
+    width: 30px;
+    height: 200px;
+    z-index: 5;
+    opacity: 0; /* Start hidden for fade-in */
+    animation: fadeIn 1.2s ease-out forwards, pulse 3s ease-in-out infinite; /* Combine fade-in and pulsing */
+    animation-delay: 0.5s; /* Staggered fade-in */
+}
+
+.vector-strip.left {
+    left: 20px;
+}
+
+.vector-strip.right {
+    right: 20px;
+}
+
+.vector-strip.strip-top {
+    top: 20%;
+}
+
+.vector-strip.strip-bottom {
+    top: calc(20% + 200px + 30px);
+}
+
+.vector-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hero Content (Logo + Text) */
+.hero-content {
+    text-align: center;
+    opacity: 0; /* Start hidden for fade-in */
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: 0.2s; /* Fade in slightly earlier than vectors */
+}
+
+/* Logo */
+.hero-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.1); /* Smooth scale on hover */
+    filter: drop-shadow(0 0 10px #ff0000); /* Smooth red glow on hover */
+}
+
+/* Custom Stier Racing Text with Background Image */
+.stier-text {
+    background: url('https://res.cloudinary.com/dn0ggboxb/image/upload/v1744008479/WhatsApp_Image_2025-04-06_at_11.56.37_xzcgyk.jpg') no-repeat center;
+    background-size: contain; /* Ensures the image scales proportionally */
+    width: 600px; /* Initial width for a big size */
+    height: 150px; /* Height to fit the image, adjust as needed */
+    margin: 0 auto 1rem; /* Centers horizontally and adds space below */
+    text-indent: -9999px; /* Hides any text content for accessibility */
+    display: block; /* Ensures it behaves as a block element */
+    animation: fadeIn 1.2s ease-out forwards; /* Matches the hero content fade-in */
+}
+
+/* Tagline */
+.hero-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Smooth upward movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulsing Animation for Vectors */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .vector-strip {
+        width: 20px;
+        height: 150px;
+    }
+
+    .vector-strip.left {
+        left: 10px;
+    }
+
+    .vector-strip.right {
+        right: 10px;
+    }
+
+    .vector-strip.strip-top {
+        top: 15%;
+    }
+
+    .vector-strip.strip-bottom {
+        top: calc(15% + 150px + 20px);
+    }
+
+    .hero-logo {
+        width: 150px;
+    }
+
+    .stier-text {
+        width: 400px; /* Reduced width for tablets */
+        height: 100px; /* Adjusted height for tablets */
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo {
+        width: 120px;
+    }
+
+    .stier-text {
+        width: 300px; /* Further reduced width for smaller screens */
+        height: 75px; /* Adjusted height for phones */
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Sections */
+.section {
+    padding: 5rem 2rem;
+    background: #111;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+}
+
+.section.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #ff0000;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+/* Team Grid */
+.team-grid,
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.team-member {
+    background: #222;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid #ff0000;
+}
+
+/* Car Section */
+#car img {
+    max-width: 80%;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 10px;
+    border: 2px solid #ff0000;
+}
+
+/* Gallery Section */
+/* Gallery Section Styling */
+.gallery-section {
+    background-color: #111;
+    /* Black background */
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gallery-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #ff0000;
+    /* Red accent */
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Gallery Container */
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    /* Adjusted for smaller images */
+    overflow: hidden;
+}
+
+/* Gallery Slider */
+.gallery-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    /* Space between images */
+    width: calc((350px + 20px) * 16 - 20px);
+    /* 16 items * (350px width + 20px gap), minus the last gap */
+    height: 100%;
+    animation: slide 40s linear infinite;
+    /* Slow animation */
+}
+
+/* Animation for Straight Sliding */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+        /* Move by half the total width (8 images + gaps) */
+    }
+}
+
+/* Gallery Item */
+.gallery-item {
+    flex: 0 0 350px;
+    /* Fixed width for all images */
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image Styling */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+    box-shadow: 0 0 15px #ff0000;
+    /* Red glow on hover */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .gallery-container {
+        height: 250px;
+    }
+
+    .gallery-slider {
+        gap: 15px;
+        /* Smaller gap on tablets */
+        width: calc((250px + 15px) * 16 - 15px);
+        /* Adjust for smaller images and gap */
+    }
+
+    .gallery-item {
+        flex: 0 0 250px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        height: 200px;
+    }
+
+    .gallery-slider {
+        gap: 10px;
+        /* Smaller gap on mobile */
+        width: calc((200px + 10px) * 16 - 10px);
+        /* Adjust for smaller images and gap */
+    }
+
+    .gallery-item {
+        flex: 0 0 200px;
+        height: 140px;
+    }
+}
+
+/* Sponsors Section */
+#sponsors {
+    background: #000;
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.sponsor-logos img {
+    max-height: 100px;
+    max-width: 130px;
+    filter: grayscale(0%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.sponsor-logos img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* Contact Section */
+#contact {
+    background: #111;
+}
+
+.social-links a {
+    color: #ff0000;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+input,
+textarea {
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #ff6666;
+    outline: none;
+}
+
+button {
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #ff3333;
+}
+
+/* Footer */
+footer {
+    padding: 2rem;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #ff0000;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #000;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav a {
+        padding: 1rem;
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+}
+
+/* About Us Section */
+.about-section {
+    position: relative;
+    background-color: #111;
+    margin: 20px 0;
+    border-radius: 10px;
+    color: #fff;
+    overflow: hidden;
+    padding: 40px 20px;
+}
+
+/* Header with Background Image, Logo, and Heading */
+.about-header {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.im.ge/2025/03/21/pLGLe1.WhatsApp-Image-2025-03-21-at-18-31-39.jpeg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.about-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.about-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+
+/* Content Below Image */
+.about-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.about-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-links {
+    text-align: center;
+}
+
+.about-links a {
+    color: #ff0000;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.about-links a:hover {
+    color: #ff3333;
+    text-decoration: underline;
+}
+
+/* Speed Arrow Styles */
+.arrows-left,
+.arrows-right {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.arrows-left {
+    left: 0;
+}
+
+.arrows-right {
+    right: 0;
+}
+
+.arrows-left.arrows-set-1 {
+    left: 0;
+}
+
+.arrows-left.arrows-set-2 {
+    left: 40px;
+}
+
+.arrows-right.arrows-set-1 {
+    right: 0;
+}
+
+.arrows-right.arrows-set-2 {
+    right: 40px;
+}
+
+.speed-vector {
+    background: #ff0000;
+    height: 8px;
+    position: relative;
+    opacity: 0.8;
+    animation: pulse 1s ease-in-out infinite alternate;
+}
+
+/* Arrow Shapes */
+.arrows-left .speed-vector {
+    transform: skew(45deg);
+    margin-left: -15px;
+    width: 120%;
+}
+
+.arrows-right .speed-vector {
+    transform: skew(-45deg);
+    margin-right: -15px;
+    width: 120%;
+}
+
+/* Varying Lengths */
+.speed-vector:nth-child(1) {
+    width: 40%;
+}
+
+.speed-vector:nth-child(2) {
+    width: 60%;
+}
+
+.speed-vector:nth-child(3) {
+    width: 80%;
+}
+
+.speed-vector:nth-child(4) {
+    width: 100%;
+}
+
+.speed-vector:nth-child(5) {
+    width: 80%;
+}
+
+.speed-vector:nth-child(6) {
+    width: 60%;
+}
+
+.speed-vector:nth-child(7) {
+    width: 40%;
+}
+
+/* Animations */
+@keyframes moveDown {
+    from {
+        transform: translateY(-100%) skew(45deg);
+    }
+
+    to {
+        transform: translateY(100%) skew(45deg);
+    }
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(100%) skew(-45deg);
+    }
+
+    to {
+        transform: translateY(-100%) skew(-45deg);
+    }
+}
+
+.arrows-left.arrows-set-1 {
+    animation: moveDown 2s linear infinite;
+}
+
+.arrows-left.arrows-set-2 {
+    animation: moveDown 2s linear infinite 1s;
+}
+
+.arrows-right.arrows-set-1 {
+    animation: moveUp 2s linear infinite;
+}
+
+.arrows-right.arrows-set-2 {
+    animation: moveUp 2s linear infinite 1s;
+}
+
+/* Depth Effect */
+.speed-vector:nth-child(odd) {
+    opacity: 0.6;
+    filter: brightness(0.8);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+    .arrows-left,
+    .arrows-right {
+        width: 50px;
+    }
+
+    .arrows-left.arrows-set-2 {
+        left: 25px;
+    }
+
+    .arrows-right.arrows-set-2 {
+        right: 25px;
+    }
+
+    .speed-vector {
+        height: 6px;
+    }
+
+    .speed-vector:nth-child(1) {
+        width: 30%;
+    }
+
+    .speed-vector:nth-child(2) {
+        width: 45%;
+    }
+
+    .speed-vector:nth-child(3) {
+        width: 60%;
+    }
+
+    .speed-vector:nth-child(4) {
+        width: 75%;
+    }
+
+    .speed-vector:nth-child(5) {
+        width: 60%;
+    }
+
+    .speed-vector:nth-child(6) {
+        width: 45%;
+    }
+
+    .speed-vector:nth-child(7) {
+        width: 30%;
+    }
+}
+
+/* Achievements & Previous Results Section */
+.achievements-section {
+    position: relative;
+    background-color: #111;
+    /* Black background */
+    margin: 20px 0;
+    border-radius: 10px;
+    color: #fff;
+    overflow: hidden;
+    padding: 50px 20px;
+    /* Increased padding for better spacing */
+    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.15) 50%, rgba(255, 0, 0, 0.15) 75%, transparent 75%, transparent);
+    background-size: 50px 50px;
+    /* Slightly larger pattern */
+}
+
+/* Main Heading */
+.achievements-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    /* Larger heading */
+    font-weight: 700;
+    color: #ff0000;
+    /* Red color */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    /* More space below */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow for depth */
+}
+
+/* Year Subheading */
+.achievements-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.achievements-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    /* Red underline */
+    height: 3px;
+    background-color: #ff0000;
+}
+
+/* Achievements List */
+.achievements-list {
+    max-width: 600px;
+    /* Wider for better readability */
+    margin: 0 auto;
+    /* Center the list */
+}
+
+/* Year Container */
+.achievement-year {
+    margin-bottom: 30px;
+    /* Space between years */
+}
+
+/* List Styling */
+.achievement-details {
+    list-style: none;
+    padding: 0;
+}
+
+.achievement-details li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    /* Space for custom bullet */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Custom Bullet */
+.achievement-details li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #ff0000;
+    /* Red bullet */
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Hover Effect on List Items */
+.achievement-details li:hover {
+    color: #ff3333;
+    /* Lighter red on hover */
+    transform: translateX(5px);
+    /* Slight shift for interactivity */
+}
+
+/* Chevron Speed Vectors (Matching About Us Section) */
+.chevron-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 60px;
+    /* Wider area for two sets */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Space vectors to fill the height */
+    padding: 10px 0;
+    /* Add padding to avoid edge clipping */
+}
+
+.chevron-right.chevron-set-1 {
+    right: 0;
+    /* First set on the far right */
+}
+
+.chevron-right.chevron-set-2 {
+    right: 30px;
+    /* Second set slightly to the left of the first */
+}
+
+.speed-vector {
+    width: 30px;
+    /* Width of the vector container */
+    height: 30px;
+    /* Height of the vector container */
+    background: none;
+    /* No background */
+    position: relative;
+    /* For pseudo-elements */
+    transform: rotate(-45deg);
+    /* Upward for right side */
+}
+
+/* Create the V-shape using pseudo-elements */
+.speed-vector::before,
+.speed-vector::after {
+    content: '';
+    position: absolute;
+    background-color: #ff0000;
+    /* Red color */
+}
+
+/* Left arm of the V */
+.speed-vector::before {
+    width: 30px;
+    /* Length of the arm */
+    height: 8px;
+    /* Thickness of the arm */
+    top: 0;
+    left: 0;
+    transform: rotate(-45deg);
+    /* Left arm angle */
+    transform-origin: top left;
+}
+
+/* Right arm of the V (slightly longer to create the arrow effect) */
+.speed-vector::after {
+    width: 40px;
+    /* Longer arm to mimic the arrow tip */
+    height: 8px;
+    /* Same thickness */
+    top: 0;
+    right: 0;
+    transform: rotate(45deg);
+    /* Right arm angle */
+    transform-origin: top right;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .achievements-section h2 {
+        font-size: 2rem;
+        /* Smaller heading on mobile */
+    }
+
+    .achievements-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .achievement-details li {
+        font-size: 1rem;
+    }
+
+    .chevron-right {
+        width: 40px;
+        /* Smaller area on mobile */
+    }
+
+    .chevron-right.chevron-set-2 {
+        right: 20px;
+        /* Adjust spacing on mobile */
+    }
+
+    .speed-vector {
+        width: 20px;
+        /* Smaller vectors on mobile */
+        height: 20px;
+    }
+
+    .speed-vector::before {
+        width: 20px;
+        /* Smaller arm on mobile */
+        height: 6px;
+        /* Thinner arm on mobile */
+    }
+
+    .speed-vector::after {
+        width: 30px;
+        /* Slightly shorter longer arm on mobile */
+        height: 6px;
+        /* Thinner arm on mobile */
+    }
+}
+
+/* contact us para*/
+#contact-us {
+    font-size: 22px;
+    font-Family: "Bree Serif";
+}
+
+#email-head {
+    font-size: 22px;
+    font-Family: "Bree Serif";
+}
