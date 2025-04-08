@@ -1,0 +1,6 @@
+<script>start("c:\\Users\\tanya\\OneDrive\\Desktop\\stierracing\\backend\\");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("node_modules","node_modules",1,0,"0 B",1744118009,"4/8/25, 6:43:29 PM");</script>
+<script>addRow("package-lock.json","package-lock.json",0,42489,"41.5 kB",1744114019,"4/8/25, 5:36:59 PM");</script>
+<script>addRow("package.json","package.json",0,423,"423 B",1744114019,"4/8/25, 5:36:59 PM");</script>
+<script>addRow("server.js","server.js",0,420,"420 B",1744114019,"4/8/25, 5:36:59 PM");</script>
