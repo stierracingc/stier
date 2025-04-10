@@ -33,7 +33,7 @@ app.post("/contact", (req, res) => {
   fs.writeFileSync(messagesFilePath, JSON.stringify(existingMessages, null, 2));
 
   console.log(`New message stored from ${name} (${email})`);
-  res.json({ message: "Message received and saved successfully!" });
+  res.json({ message: "Message sent.Will get back shortly!" });
 });
 
 // 🔹 Optional: View all messages
