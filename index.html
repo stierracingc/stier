@@ -273,7 +273,7 @@
             <input type="text" name="name" placeholder="Name" required>
             <input type="email" name="email" placeholder="Email" required>
             <textarea name="message" placeholder="Message" required></textarea>
-            <button type="submit">Message sent. Will get back shortly!</button>
+            <button type="submit">Send</button>
           </form>
         <p id="response-message" style="color: green; margin-top: 10px;"></p>
     </section>
@@ -307,7 +307,8 @@
     
               const result = await response.json();
               document.getElementById("response-message").innerText = result.message;
-    
+              document.getElementById("response-message").innerText = "Message sent.Will get back shortly!";
+              document.getElementById("response-message").style.color = "green";
               // Optional: Clear the form
               e.target.reset();
     
